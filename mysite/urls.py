@@ -16,10 +16,12 @@ Including another URLconf
 from django.conf.urls import *
 from django.contrib import admin
 from mysite.view import current_datetime
+from mysite.books.views import contact
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^time/$', current_datetime),
+    url(r'contact/$', contact)
 
 ]
 
