@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
+<style>
+    body{
+        color: #ffeedd;
+        background: #7e98d8;
+        padding:0 5em;
+        margin: 0;
+    }
+    h1{
+        padding:2em 1em;
+        background: #7e98d8;
+    }
+    h2{
+        color: #ffeedd;
+        border-top:1px dotted #fff;
+        margin-top:2em;
+    }
+    p{
+        margin:1em 0;
+    }
+</style>
 </head>
 <body>
-    <h1>我的时间轴</h1>
+    <h1>hamioo的拾光</h1>
     {% block content %}{% endblock %}
     {% block footer %}
     <hr>
