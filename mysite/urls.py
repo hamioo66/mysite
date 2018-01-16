@@ -17,7 +17,7 @@ from django.conf.urls import *
 from django.contrib import admin
 from mysite.view import current_datetime
 from mysite.books.views import contact,search,add_publisher
-from mysite.blog.views import archive
+from mysite.blog.views import index
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'contact/$', contact),
     url(r'^search/$', search),
     url(r'^add_publisher/$', add_publisher),
-    url(r'^archive/$', archive),
+    url(r'^index/$', index),
 
 ]
 

@@ -1,34 +1,239 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}{% endblock %}</title>
-<style>
-    body{
-        color: #ffeedd;
-        background: #7e98d8;
-        padding:0 5em;
-        margin: 0;
-    }
-    h1{
-        padding:2em 1em;
-        background: #7e98d8;
-    }
-    h2{
-        color: #ffeedd;
-        border-top:1px dotted #fff;
-        margin-top:2em;
-    }
-    p{
-        margin:1em 0;
-    }
-</style>
-</head>
-<body>
-    <h1>hamioo的拾光</h1>
-    {% block content %}{% endblock %}
-    {% block footer %}
-    <hr>
-    {% endblock %}
-</body>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>hamioo的逆拾光</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        {% load static %}
+		<!--[if lte IE 8]><script src="{% static 'assets/js/ie/html5shiv.js' %}"></script><![endif]-->
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'assets/css/ie9.css' %}" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'assets/css/ie8.css' %}" /><![endif]-->
+	</head>
+	<body>
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="#">Hamioo逆拾光</a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="#">拾光</a></li>
+								<li><a href="#">碎片</a></li>
+								<li><a href="#">潜记忆</a></li>
+								<li><a href="#">关于</a></li>
+								<li><a href="#">我的</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-search" href="#search">搜索</a>
+									<form id="search" method="get" action="#">
+										<input type="text" name="query" placeholder="搜索" />
+									</form>
+								</li>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<section id="menu">
+
+						<!-- Search -->
+							<section>
+								<form class="search" method="get" action="#">
+									<input type="text" name="query" placeholder="搜索" />
+								</form>
+							</section>
+
+						<!-- Links -->
+							<section>
+								<ul class="links">
+									<li>
+										<a href="#">
+											<h3>拾光</h3>
+											<p>春风十里</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>碎片</h3>
+											<p>不如你</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>潜记忆</h3>
+											<p>默然回首</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>关于</h3>
+											<p>那人却在灯火阑珊处</p>
+										</a>
+									</li>
+								</ul>
+							</section>
+
+						<!-- Actions -->
+							<section>
+								<ul class="actions vertical">
+									<li><a href="#" class="button big fit">登录</a></li>
+								</ul>
+							</section>
+					</section>
+                    <div class="copyrights">2018 <a href="http://www.baidu.com" >hamioo</a></div>
+                    {% block content %}
+
+                    {% endblock %}
+
+				<!-- Sidebar -->
+					<section id="sidebar">
+
+						<!-- Intro -->
+							<section id="intro">
+								<a href="#" class="logo"><img src="../static/images/logo.jpg" alt="" /></a>
+								<header>
+									<h2>记录点滴</h2>
+									<p>伟大而渺小的梦想</p>
+								</header>
+							</section>
+
+						<!-- Mini Posts -->
+							<section>
+								<div class="mini-posts">
+
+									<!-- Mini Post -->
+										<article class="mini-post">
+											<header>
+												<h3><a href="#">Vitae sed condimentum</a></h3>
+												<time class="published" datetime="2015-10-20">October 20, 2015</time>
+												<a href="#" class="author"><img src="../static/images/avatar.jpg" alt="" /></a>
+											</header>
+											<a href="#" class="image"><img src="../static/images/pic04.jpg" alt="" /></a>
+										</article>
+
+									<!-- Mini Post -->
+										<article class="mini-post">
+											<header>
+												<h3><a href="#">Rutrum neque accumsan</a></h3>
+												<time class="published" datetime="2015-10-19">October 19, 2015</time>
+												<a href="#" class="author"><img src="../static/images/avatar.jpg" alt="" /></a>
+											</header>
+											<a href="#" class="image"><img src="../static/images/pic05.jpg" alt="" /></a>
+										</article>
+
+									<!-- Mini Post -->
+										<article class="mini-post">
+											<header>
+												<h3><a href="#">Odio congue mattis</a></h3>
+												<time class="published" datetime="2015-10-18">October 18, 2015</time>
+												<a href="#" class="author"><img src="../static/images/avatar.jpg" alt="" /></a>
+											</header>
+											<a href="#" class="image"><img src="../static/images/pic06.jpg" alt="" /></a>
+										</article>
+
+									<!-- Mini Post -->
+										<article class="mini-post">
+											<header>
+												<h3><a href="#">Enim nisl veroeros</a></h3>
+												<time class="published" datetime="2015-10-17">October 17, 2015</time>
+												<a href="#" class="author"><img src="../static/images/avatar.jpg" alt="" /></a>
+											</header>
+											<a href="#" class="image"><img src="../static/images/pic07.jpg" alt="" /></a>
+										</article>
+
+								</div>
+							</section>
+
+						<!-- Posts List -->
+							<section>
+								<ul class="posts">
+									<li>
+										<article>
+											<header>
+												<h3><a href="#">Lorem ipsum fermentum ut nisl vitae</a></h3>
+												<time class="published" datetime="2015-10-20">October 20, 2015</time>
+											</header>
+											<a href="#" class="image"><img src="../static/images/pic08.jpg" alt="" /></a>
+										</article>
+									</li>
+									<li>
+										<article>
+											<header>
+												<h3><a href="#">Convallis maximus nisl mattis nunc id lorem</a></h3>
+												<time class="published" datetime="2015-10-15">October 15, 2015</time>
+											</header>
+											<a href="#" class="image"><img src="../static/images/pic09.jpg" alt="" /></a>
+										</article>
+									</li>
+									<li>
+										<article>
+											<header>
+												<h3><a href="#">Euismod amet placerat vivamus porttitor</a></h3>
+												<time class="published" datetime="2015-10-10">October 10, 2015</time>
+											</header>
+											<a href="#" class="image"><img src="../static/images/pic10.jpg" alt="" /></a>
+										</article>
+									</li>
+									<li>
+										<article>
+											<header>
+												<h3><a href="#">Magna enim accumsan tortor cursus ultricies</a></h3>
+												<time class="published" datetime="2015-10-08">October 8, 2015</time>
+											</header>
+											<a href="#" class="image"><img src="../static/images/pic11.jpg" alt="" /></a>
+										</article>
+									</li>
+									<li>
+										<article>
+											<header>
+												<h3><a href="#">Congue ullam corper lorem ipsum dolor</a></h3>
+												<time class="published" datetime="2015-10-06">October 7, 2015</time>
+											</header>
+											<a href="#" class="image"><img src="../static/images/pic12.jpg" alt="" /></a>
+										</article>
+									</li>
+								</ul>
+							</section>
+
+						<!-- About -->
+							<section class="blurb">
+								<h2>About</h2>
+								<p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at phasellus sed ultricies.</p>
+								<ul class="actions">
+									<li><a href="#" class="button">Learn More</a></li>
+								</ul>
+							</section>
+
+						<!-- Footer -->
+							<section id="footer">
+								<ul class="icons">
+									<li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="fa-rss"><span class="label">RSS</span></a></li>
+									<li><a href="#" class="fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+								<p class="copyright">&copy; Untitled. More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>.</p>
+							</section>
+
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/jquery.min.js'%}"></script>
+			<script src="{% static 'assets/js/skel.min.js'%}"></script>
+			<script src="{% static 'assets/js/util.js'%}"></script>
+			<!--[if lte IE 8]><script src="'{% static 'assets/js/ie/respond.min.js'%}"></script><![endif]-->
+			<script src="{% static 'assets/js/main.js'%}"></script>
+
+	</body>
 </html>
