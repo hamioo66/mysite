@@ -3,13 +3,12 @@
 <!-- Main -->
 <div id="main">
     <!-- Post -->
-        {% for blog in blogs %}
+        {% for post in posts %}
         <article class="post">
             <header>
                 <div class="title">
-{#                    {% url detailblog post.id %}#}
-                    <h2><a href="#">{{ blog.caption }}</a></h2>
-                    <p>{{ blog.publish_time|date:"Y-M-D h:m:s" }}</p>
+                    <h2><a href="#">{{ post.caption }}</a></h2>
+                    <p>{{ post.publish_time|date:"Y-M-D h:m:s" }}</p>
                 </div>
                 <div class="meta">
                     <time class="published" datetime="2015-11-01">November 1, 2015</time>
@@ -17,10 +16,10 @@
                 </div>
             </header>
             <a href="#" class="image featured"><img src="../static/images/pic01.jpg" alt="" /></a>
-            <p>{{ blog.content }}</p>
+            <p>{{ post.content }}</p>
             <footer>
                 <ul class="actions">
-                    <li><a href="blog_show.html" class="button big">更多</a></li>
+                    <li><a href="#" class="button big">更多</a></li>
                 </ul>
                 <ul class="stats">
                     <li><a href="#">General</a></li>

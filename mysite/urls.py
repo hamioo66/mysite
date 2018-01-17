@@ -17,15 +17,18 @@ from django.conf.urls import *
 from django.contrib import admin
 from mysite.view import current_datetime
 from mysite.books.views import contact,search,add_publisher
-from mysite.blog.views import index
-
+from mysite.blog.views import index,blog_show
+admin.autodiscover()
 urlpatterns = [
+    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^time/$', current_datetime),
     url(r'contact/$', contact),
     url(r'^search/$', search),
     url(r'^add_publisher/$', add_publisher),
+    # url(r'^blog/',include('mysite.urls')),
     url(r'^index/$', index),
+    url(r'^index/(?P<id>\d+)/$', blog_show, name='detailblog'),
 
 ]
 
