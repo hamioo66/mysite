@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from django.contrib import admin
 
 
 class Tag(models.Model):
@@ -27,6 +26,7 @@ class Author(models.Model):
 class Blog(models.Model):
     """博客"""
     caption = models.CharField(max_length=50)
+    describe = models.CharField(max_length=30, null=True)
     author = models.ForeignKey(Author)
     tags = models.ManyToManyField(Tag, blank=True)
     content = models.TextField()
@@ -37,8 +37,4 @@ class Blog(models.Model):
         ordering = ('-publish_time',)
 
     def __unicode__(self):
-        return u'%s %s %s' % (self.caption, self.author, self.publish_time)
-
-
-class BlogPostAdmin(admin.ModelAdmin):
-    list_display = ('caption', 'author', 'content', 'publish_time')
+        return u'%s %s %s %s' % (self.caption, self.describe, self.author, self.publish_time)

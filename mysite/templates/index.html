@@ -9,21 +9,21 @@
                 <div class="title">
 {#                    {% url detailblog post.id %}#}
                     <h2><a href="#">{{ blog.caption }}</a></h2>
-                    <p>{{ blog.publish_time|date:"Y-M-D h:m:s" }}</p>
+                    <p>{{ blog.describe }}</p>
                 </div>
                 <div class="meta">
-                    <time class="published" datetime="2015-11-01">November 1, 2015</time>
-                    <a href="#" class="author"><span class="name">Hamioo</span><img src="../static/images/avatar.jpg" alt="" /></a>
+                    <time class="published" datetime="2015-11-01">{{ blog.publish_time|date:"Y/M/D h:m:s" }}</time>
+                    <a href="#" class="author"><span class="name">{{ blog.author }}</span><img src="../static/images/avatar.jpg" alt="" /></a>
                 </div>
             </header>
             <a href="#" class="image featured"><img src="../static/images/pic01.jpg" alt="" /></a>
-            <p>{{ blog.content }}</p>
+            <p class="passage">{{ blog.content }}</p>
             <footer>
                 <ul class="actions">
-                    <li><a href="blog_show.html" class="button big">更多</a></li>
+                    <li><a href="../templates/blog_show.html" class="button big">更多</a></li>
                 </ul>
                 <ul class="stats">
-                    <li><a href="#">General</a></li>
+                    <li><a href="#">{{ blog.tags }}</a></li>
                     <li><a href="#" class="icon fa-heart">28</a></li>
                     <li><a href="#" class="icon fa-comment">128</a></li>
                 </ul>
@@ -33,8 +33,12 @@
     <!-- Post -->
     <!-- Pagination -->
         <ul class="actions pagination">
-            <li><a href="" class="disabled button big previous">上一页</a></li>
-            <li><a href="#" class="button big next">下一页</a></li>
+{#            {% if item_info.has_previous %}#}
+            <li><a href="?page={{item_info.previous_page_number}}" class="disabled button big previous">上一页</a></li>
+{#            {% endif %}#}
+{#            {% if item_info.has_next %}#}
+            <li><a href="?page={{item_info.next_page_number}}" class="button big next">下一页</a></li>
+{#            {% endif %}#}
         </ul>
 </div>
 {% endblock %}
