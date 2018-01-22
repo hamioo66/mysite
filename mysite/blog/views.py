@@ -2,9 +2,9 @@
 # from django.template import loader,Context
 # from django.http import HttpResponse
 from django.shortcuts import render_to_response
-from models import Blog,Tag
+from models import Blog,Comment
 from django.http import Http404
-from django.utils import timezone
+from mysite.blog.forms import CommentForm
 from django.core.paginator import Paginator
 
 
@@ -16,7 +16,7 @@ def index(request):
     # return HttpResponse(t.render(c))
     # 分页
 
-    blogs = Blog.objects.all()
+    blogs = Blog.objects.all().order_by(('-publish_time'))
     p = Paginator(blogs, 4)
     print('页码数量', p.num_pages)
     page = request.GET.get('page', 1)
@@ -24,11 +24,17 @@ def index(request):
     return render_to_response("index.html", {"blogs": blogs}, {"item_info": loaded})
 
 
-def blog_show(request, id=''):
+def get_details(request, blog_id):
     try:
-        blogs = Blog.objects.get(id=id)
-        # # 获取当前时间
-        # time = timezone.localtime(timezone.now().strftime("%Y-%m-%d %H:%M:%S"))
+        blog = Blog.objects.get(id=blog_id)
     except Blog.DoesNotExist:
         raise Http404
-    return render_to_response("blog_show.html", {"blogs": blogs})
+    if request.method == 'GET':
+        form = CommentForm()
+    else:
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            clean_data = form.cleaned_data
+            clean_data['blog'] = blog
+            Comment.objects.create(**clean_data)
+    return render_to_response("blog_show.html", {"blog": blog})

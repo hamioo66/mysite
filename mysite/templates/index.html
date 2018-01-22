@@ -1,45 +1,152 @@
 {% extends "base.html" %}
 {% block content %}
-<!-- Main -->
-<div id="main">
-    <!-- Post -->
-        {% for blog in blogs %}
-        <article class="post">
-            <header>
-                <div class="title">
-{#                    {% url detailblog post.id %}#}
-                    <h2><a href="#">{{ blog.caption }}</a></h2>
-                    <p>{{ blog.describe }}</p>
-                </div>
-                <div class="meta">
-                    <time class="published" datetime="2015-11-01">{{ blog.publish_time|date:"Y/M/D h:m:s" }}</time>
-                    <a href="#" class="author"><span class="name">{{ blog.author }}</span><img src="../static/images/avatar.jpg" alt="" /></a>
-                </div>
-            </header>
-            <a href="#" class="image featured"><img src="../static/images/pic01.jpg" alt="" /></a>
-            <p class="passage">{{ blog.content }}</p>
-            <footer>
-                <ul class="actions">
-                    <li><a href="../templates/blog_show.html" class="button big">更多</a></li>
-                </ul>
-                <ul class="stats">
-                    <li><a href="#">{{ blog.tags }}</a></li>
-                    <li><a href="#" class="icon fa-heart">28</a></li>
-                    <li><a href="#" class="icon fa-comment">128</a></li>
-                </ul>
-            </footer>
-        </article>
-        {% endfor %}
-    <!-- Post -->
-    <!-- Pagination -->
+{% for blog in blogs %}
+    <!-- Main -->
+    <div id="main">
+        <!-- Post -->
+
+            <article class="post">
+                <header>
+                    <div class="title">
+                        <h2><a href="{% url 'detailblog' blog.id %}">{{ blog.caption }}</a></h2>
+                        <p>{{ blog.describe }}</p>
+                    </div>
+                    <div class="meta">
+                        <time class="published" datetime="2015-11-01">{{ blog.publish_time|date:"Y-m-d  H:m:s D" }}</time>
+                        <a href="#" class="author"><span class="name">{{ blog.author.name }}</span><img
+                                src="../static/images/avatar.jpg" alt=""/></a>
+                    </div>
+                </header>
+                <a href="#" class="image featured"><img src="../static/images/pic01.jpg" alt=""/></a>
+                <p class="passage">{{ blog.content }}</p>
+                <footer>
+                    <ul class="actions">
+                        <li><a href="{% url 'detailblog' blog.id %}" class="button big">更多</a></li>
+                    </ul>
+                    <ul class="stats">
+                        <li><a href="#">{{ blog.catagory.name }}</a></li>
+                        <li><a href="#" class="icon fa-heart">28</a></li>
+                        <li><a href="{% url 'detailblog' blog.id %}" class="icon fa-comment">128</a></li>
+                    </ul>
+                </footer>
+            </article>
+
+        <!-- Post -->
+        <!-- Pagination -->
         <ul class="actions pagination">
-{#            {% if item_info.has_previous %}#}
-            <li><a href="?page={{item_info.previous_page_number}}" class="disabled button big previous">上一页</a></li>
-{#            {% endif %}#}
-{#            {% if item_info.has_next %}#}
-            <li><a href="?page={{item_info.next_page_number}}" class="button big next">下一页</a></li>
-{#            {% endif %}#}
+            {#            {% if item_info.has_previous %}#}
+            <li><a href="?page={{ item_info.previous_page_number }}" class="disabled button big previous">上一页</a></li>
+            {#            {% endif %}#}
+            {#            {% if item_info.has_next %}#}
+            <li><a href="?page={{ item_info.next_page_number }}" class="button big next">下一页</a></li>
+            {#            {% endif %}#}
         </ul>
-</div>
+    </div>
+
+
+    <section id="sidebar">
+
+        <!-- Intro -->
+        <section id="intro">
+            <a href="#" class="logo"><img src="../static/images/logo.jpg" alt=""/></a>
+            <header>
+                <h2>记录点滴</h2>
+                <p>伟大而渺小的梦想</p>
+            </header>
+        </section>
+
+        <!-- Mini Posts -->
+        <section>
+            <div class="mini-posts">
+
+                <!-- Mini Post -->
+                <article class="mini-post">
+                    <header>
+                        <h3><a href="#">{{ blog.caption }}</a></h3>
+                        <time class="published" datetime="2015-10-20">{{ blog.publish_time|date:"Y-m-d H:m:s D" }}</time>
+                        <a href="#" class="author"><img src="../static/images/avatar.jpg" alt=""/></a>
+                    </header>
+                    <a href="#" class="image"><img src="../static/images/pic04.jpg" alt=""/></a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Posts List -->
+        <section>
+            <ul class="posts">
+                <li>
+                    <article>
+                        <header>
+                            <h3><a href="#">Lorem ipsum fermentum ut nisl vitae</a></h3>
+                            <time class="published" datetime="2015-10-20">October 20, 2015</time>
+                        </header>
+                        <a href="#" class="image"><img src="../static/images/pic08.jpg" alt=""/></a>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <header>
+                            <h3><a href="#">Convallis maximus nisl mattis nunc id lorem</a></h3>
+                            <time class="published" datetime="2015-10-15">October 15, 2015</time>
+                        </header>
+                        <a href="#" class="image"><img src="../static/images/pic09.jpg" alt=""/></a>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <header>
+                            <h3><a href="#">Euismod amet placerat vivamus porttitor</a></h3>
+                            <time class="published" datetime="2015-10-10">October 10, 2015</time>
+                        </header>
+                        <a href="#" class="image"><img src="../static/images/pic10.jpg" alt=""/></a>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <header>
+                            <h3><a href="#">Magna enim accumsan tortor cursus ultricies</a></h3>
+                            <time class="published" datetime="2015-10-08">October 8, 2015</time>
+                        </header>
+                        <a href="#" class="image"><img src="../static/images/pic11.jpg" alt=""/></a>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <header>
+                            <h3><a href="#">Congue ullam corper lorem ipsum dolor</a></h3>
+                            <time class="published" datetime="2015-10-06">October 7, 2015</time>
+                        </header>
+                        <a href="#" class="image"><img src="../static/images/pic12.jpg" alt=""/></a>
+                    </article>
+                </li>
+            </ul>
+        </section>
+
+        <!-- About -->
+        <section class="blurb">
+            <h2>About</h2>
+            <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet
+                placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at phasellus sed ultricies.</p>
+            <ul class="actions">
+                <li><a href="#" class="button">Learn More</a></li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <section id="footer">
+            <ul class="icons">
+                <li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="fa-rss"><span class="label">RSS</span></a></li>
+                <li><a href="#" class="fa-envelope"><span class="label">Email</span></a></li>
+            </ul>
+            <p class="copyright">&copy; Untitled. More Templates <a href="http://www.cssmoban.com/" target="_blank"
+                                                                    title="模板之家">模板之家</a> - Collect from <a
+                    href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>.</p>
+        </section>
+
+    </section>
+{% endfor %}
 {% endblock %}
 
