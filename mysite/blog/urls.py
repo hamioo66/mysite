@@ -5,10 +5,10 @@ date:2018/1/22
 describle:
 """
 from django.conf.urls import url
-from mysite.blog import views
+from . import views
 
 urlpatterns = [
-    url(r'^index/$', views.index, name='index'),
-    url(r'^index/(\d+)/$', views.get_details, name='detailblog'),
+    url(r'^$', views.index, name='index'),
+    url(r'^(\d+)/$', views.get_details, name='detailblog'),
 ]
 

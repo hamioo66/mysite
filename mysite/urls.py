@@ -21,11 +21,10 @@ from mysite.blog.views import index,get_details
 admin.autodiscover()
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    # url(r'', include('mysite.blog.urls', namespace='blog', app_name='blog'))
-    url(r'^time/$', current_datetime),
-    url(r'^index/$', index),
-    url(r'^index/(\d+)/$', get_details, name='detailblog'),
-
+    url(r'index/', include('mysite.blog.urls'))
+    # url(r'^time/$', current_datetime),
+    # url(r'^index/$', index),
+    # url(r'^index/(\d+)/$', get_details, name='detailblog'),
     # url(r'contact/$', contact),
     # url(r'^search/$', search),
     # url(r'^add_publisher/$', add_publisher),

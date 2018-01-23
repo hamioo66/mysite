@@ -33,8 +33,8 @@ class Author(models.Model):
 
 class Blog(models.Model):
     """博客"""
-    caption = models.CharField(max_length=50)
-    describe = models.CharField(max_length=30, null=True)
+    caption = models.CharField('标题',max_length=50)
+    describe = models.CharField('描述',max_length=30, null=True)
     author = models.ForeignKey(Author)
     catagory = models.ForeignKey(Catagory, verbose_name='分类', null=True)
     tags = models.ManyToManyField(Tag, blank=True)
