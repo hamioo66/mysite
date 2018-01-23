@@ -1,109 +1,109 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>hamioo的逆拾光</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-        {% load static %}
-		<!--[if lte IE 8]><script src="{% static 'assets/js/ie/html5shiv.js' %}"></script><![endif]-->
-		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'assets/css/ie9.css' %}" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'assets/css/ie8.css' %}" /><![endif]-->
-	</head>
-	<body>
-		<!-- Wrapper -->
-			<div id="wrapper">
+<head>
+    <title>hamioo的逆拾光</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    {% load static %}
+    <!--[if lte IE 8]><script src="{% static 'assets/js/ie/html5shiv.js' %}"></script><![endif]-->
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}"/>
+    <!--[if lte IE 9]><link rel="stylesheet" href="{% static 'assets/css/ie9.css' %}" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="{% static 'assets/css/ie8.css' %}" /><![endif]-->
+</head>
+<body>
+<!-- Wrapper -->
+<div id="wrapper">
 
-				<!-- Header -->
-					<header id="header">
-						<h1><a href="{% url 'index' %}">Hamioo逆拾光</a></h1>
-						<nav class="links">
-							<ul>
-								<li><a href="{% url 'index' %}">拾光</a></li>
-								<li><a href="{% url 'index' %}">碎片</a></li>
-								<li><a href="{% url 'index' %}">潜记忆</a></li>
-								<li><a href="{% url 'index' %}">关于</a></li>
-								<li><a href="{% url 'index' %}">我的</a></li>
-							</ul>
-						</nav>
-						<nav class="main">
-							<ul>
-								<li class="search">
-									<a class="fa-search" href="#search">搜索</a>
-									<form id="search" method="get" action="#">
-										<input type="text" name="query" placeholder="搜索" />
-									</form>
-								</li>
-								<li class="menu">
-									<a class="fa-bars" href="#menu">Menu</a>
-								</li>
-							</ul>
-						</nav>
-					</header>
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="{% url 'index' %}">Hamioo逆拾光</a></h1>
+        <nav class="links">
+            <ul>
+                <li><a href="{% url 'index' %}">拾光碎片</a></li>
+                {#								<li><a href="{% url 'index' %}">碎片</a></li>#}
+                {#								<li><a href="{% url 'index' %}">潜记忆</a></li>#}
+                {#								<li><a href="{% url 'index' %}">关于</a></li>#}
+                {#								<li><a href="{% url 'index' %}">我的</a></li>#}
+            </ul>
+        </nav>
+        <nav class="main">
+            <ul>
+                <li class="search">
+                    <a class="fa-search" href="#search">搜索</a>
+                    <form id="search" method="get" action="#">
+                        <input type="text" name="query" placeholder="搜索"/>
+                    </form>
+                </li>
+                <li class="menu">
+                    <a class="fa-bars" href="#menu">Menu</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-				<!-- Menu -->
-					<section id="menu">
+    <!-- Menu -->
+    <section id="menu">
 
-						<!-- Search -->
-							<section>
-								<form class="search" method="get" action="#">
-									<input type="text" name="query" placeholder="搜索" />
-								</form>
-							</section>
+        <!-- Search -->
+        <section>
+            <form class="search" method="get" action="#">
+                <input type="text" name="query" placeholder="搜索"/>
+            </form>
+        </section>
 
-						<!-- Links -->
-							<section>
-								<ul class="links">
-									<li>
-										<a href="#">
-											<h3>拾光</h3>
-											<p>春风十里</p>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<h3>碎片</h3>
-											<p>不如你</p>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<h3>潜记忆</h3>
-											<p>默然回首</p>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<h3>关于</h3>
-											<p>那人却在灯火阑珊处</p>
-										</a>
-									</li>
-								</ul>
-							</section>
+        <!-- Links -->
+        <section>
+            <ul class="links">
+                <li>
+                    <a href="{% url 'index' %}">
+                        <h3>拾光</h3>
+                        <p>春风十里</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'index' %}">
+                        <h3>碎片</h3>
+                        <p>不如你</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'index' %}">
+                        <h3>潜记忆</h3>
+                        <p>默然回首</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'index' %}">
+                        <h3>关于</h3>
+                        <p>那人却在灯火阑珊处</p>
+                    </a>
+                </li>
+            </ul>
+        </section>
 
-						<!-- Actions -->
-							<section>
-								<ul class="actions vertical">
-									<li><a href="#" class="button big fit">登录</a></li>
-								</ul>
-							</section>
-					</section>
-                    <div class="copyrights">2018 <a href="http://www.baidu.com" >hamioo</a></div>
-                    {% block content %}
+        <!-- Actions -->
+        <section>
+            <ul class="actions vertical">
+                <li><a href="#" class="button big fit">登录</a></li>
+            </ul>
+        </section>
+    </section>
+    <div class="copyrights">2018 <a href="http://www.baidu.com">hamioo</a></div>
+    {% block content %}
 
-                    {% endblock %}
+    {% endblock %}
 
-				<!-- Sidebar -->
+    <!-- Sidebar -->
 
 
-			</div>
+</div>
 
-		<!-- Scripts -->
-			<script src="{% static 'assets/js/jquery.min.js'%}"></script>
-			<script src="{% static 'assets/js/skel.min.js'%}"></script>
-			<script src="{% static 'assets/js/util.js'%}"></script>
-			<!--[if lte IE 8]><script src="'{% static 'assets/js/ie/respond.min.js'%}"></script><![endif]-->
-			<script src="{% static 'assets/js/main.js'%}"></script>
+<!-- Scripts -->
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/js/skel.min.js' %}"></script>
+<script src="{% static 'assets/js/util.js' %}"></script>
+<!--[if lte IE 8]><script src="'{% static 'assets/js/ie/respond.min.js'%}"></script><![endif]-->
+<script src="{% static 'assets/js/main.js' %}"></script>
 
-	</body>
+</body>
 </html>

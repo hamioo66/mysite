@@ -2,26 +2,25 @@
 # from django.template import loader,Context
 # from django.http import HttpResponse
 from django.shortcuts import render_to_response
-from models import Blog,Comment
+from models import Blog, Comment
 from django.http import Http404
 from mysite.blog.forms import CommentForm
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
-# Create your views here.
 def index(request):
-    # posts = Blog.objects.all()
-    # t = loader.get_template('../templates/index.html')
-    # c = Context({'posts': posts})
-    # return HttpResponse(t.render(c))
     # 分页
-
-    blogs = Blog.objects.all().order_by(('-publish_time'))
-    p = Paginator(blogs, 4)
+    blogs_list = Blog.objects.all().order_by(('-publish_time'))
+    p = Paginator(blogs_list, 1)
     print('页码数量', p.num_pages)
-    page = request.GET.get('page', 1)
-    loaded = p.page(page)
-    return render_to_response("index.html", {"blogs": blogs}, {"item_info": loaded})
+    page = request.GET.get('page')
+    try:
+        blogs = p.page(page)
+    except PageNotAnInteger:
+        blogs = p.page(1)
+    except EmptyPage:
+        blogs = p.page(p.num_pages)
+    return render_to_response("index.html", {"blogs": blogs})
 
 
 def get_details(request, blog_id):
